@@ -64,7 +64,9 @@ class Plant:
         """
     
     def sunlight():
-        """
+        """Checks the suitable amount of sunlight required
+        for plants to grow
+        
         Returns:
             health(int): updated health points
         """
@@ -124,5 +126,3 @@ if __name__ == "__main__":
     args = parse_args(sys.argv[1:])
     main(args.event_file, start_date=args.startdate, end_date=args.enddate)
 
-
-#trying push
