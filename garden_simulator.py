@@ -102,25 +102,6 @@ def harvest(name, health):
     Side effect:
         Removes plant from garden when health points reach maximum
     """
-
-
-
-
-def main(filepath, start_date=None, end_date=None):
-    """Read events from a file and print out a timeline of events from
-    start_date to end_date.
-    
-    Args:
-        filepath (str): path to a tab-delimited file where each line consists
-            of a date, a tab, and a description of an event.
-        start_date (Event, str, tuple, or None): the earliest date of interest
-            (if None, include dates as far back as possible).
-        end_date (Event, str, tuple, or None): the latest date of interest (if
-            None, include dates as far forward as possible).
-    
-    Side effects:
-        Writes to stdout.
-    """
     
 if __name__ == "__main__":
     args = parse_args(sys.argv[1:])
