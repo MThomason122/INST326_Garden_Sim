@@ -103,3 +103,4 @@ def harvest(name, health):
         Removes plant from garden when health points reach maximum
     """
 
+if __name__ == "__main__":
