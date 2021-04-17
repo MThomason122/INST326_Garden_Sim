@@ -102,8 +102,4 @@ def harvest(name, health):
     Side effect:
         Removes plant from garden when health points reach maximum
     """
-    
-if __name__ == "__main__":
-    args = parse_args(sys.argv[1:])
-    main(args.event_file, start_date=args.startdate, end_date=args.enddate)
 
