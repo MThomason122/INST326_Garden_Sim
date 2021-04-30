@@ -11,6 +11,8 @@ class Plant:
         health (int): plant lifecycle where certain levels indicate phase of 
         growth
     """
+    #whoa
+    #hello
     
     def __init__(self, name, filepath, health=0):
         """Initializes plant name and health.
