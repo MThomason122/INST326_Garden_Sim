@@ -11,8 +11,7 @@ class Plant:
         health (int): plant lifecycle where certain levels indicate phase of 
         growth
     """
-    #whoa
-    #hello
+
     
     def __init__(self, name, filepath, health=0):
         """Initializes plant name and health.
@@ -35,7 +34,27 @@ class Plant:
         Returns:
             stage(int): Stage of life of plant  
         """
-    
+        stage = 0
+        for name in PLANT:
+            # Seed/Germination stage
+            if (health == 0):
+                return stage == 1
+            # Seedling stage
+            elif (0 < health < 5):
+                return stage == 2
+            # Vegetative stage
+            elif  (5 < health < 15 ):
+                return stage == 3
+            # Bud stage
+            elif (15 < health < 30): 
+                return stage == 4
+            # Flowering stage
+            elif (30 < health < 70 ):
+                return stage == 5
+            # Ripening stage
+            elif (70 < health < 100):
+                return stage == 6
+            
     def water(self, name):
         """Waters plant according to data in file of plant information and adds 
         points to health bar.
@@ -114,7 +133,9 @@ def main():
     Side effects:
       Writes to stdout
     """
-  
+    
+    harvest()
+      
 if __name__ == "__main__":
     """Calls main function
     """
