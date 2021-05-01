@@ -1,8 +1,7 @@
 """ A garden simulator for growing plants """
 
-PLANT = {name, water, season, environment, sunlight, ph, phase} 
+# PLANT = {name, water, season, environment, sunlight, ph, phase} 
   # sunflower, daisy, potato
-
 class Plant:
     """Plants grown in the garden simulation
     
@@ -11,9 +10,9 @@ class Plant:
         health (int): plant lifecycle where certain levels indicate phase of 
         growth
     """
-
     
-   def __init__(self, name, filepath, starting_HP=0, max_HP, water):
+   def __init__(self, filepath, name, min_sunlight, max_sunlight, min_ph, 
+                max_ph,  max_HP, water, starting_HP=0):
         """Initializes plant name and health.
         
         Args: 
@@ -23,10 +22,26 @@ class Plant:
             growth; initializes health of plant to zero
         """
         self.name = name
-        self.filepath = filepath
-        self.starting_HP = starting_HP
+        self.min_sunlight = min_sunlight
+        self.max_sunlight = max_sunlight
+        self.min_ph = min_ph
+        self.max_ph = max_ph
         self.max_HP = max_HP
         self.water = water
+        self.starting_HP = starting_HP
+        plant = {}
+        with open(filepath, "r", encoding = "utf-8") as f:
+            for x in f.readlines():
+                line = line.split()
+                plant = {name: line[0],
+                         water: line[1],
+                         season: line[2],
+                         environment: line[3],
+                         min_sunlight: line[4],
+                         max_sunlight: line[5],
+                         min_ph: line[6],
+                         max_ph: line[7],
+                         max_HP: line[8]} 
     
     def phase(self, name, health):    
         """Identifies the phase of growth the plant is in based on health points
@@ -167,3 +182,4 @@ def main(plant, max_HP): #unsure on how to write this code
 if __name__ == "__main__":
     """Calls main function
     """
+main(sunflower, 89)
