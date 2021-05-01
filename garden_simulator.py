@@ -13,7 +13,7 @@ class Plant:
     """
 
     
-    def __init__(self, name, filepath, health=0):
+   def __init__(self, name, filepath, starting_HP=0, max_HP):
         """Initializes plant name and health.
         
         Args: 
@@ -22,6 +22,10 @@ class Plant:
             health (int): plant lifecycle where certain levels indicate phase of 
             growth; initializes health of plant to zero
         """
+        self.name = name
+        self.filepath = filepath
+        self.starting_HP = starting_HP
+        self.max_HP = max_HP
     
     def phase(self, name, health):    
         """Identifies the phase of growth the plant is in based on health points
@@ -37,22 +41,22 @@ class Plant:
         stage = 0
         for name in PLANT:
             # Seed/Germination stage
-            if (health == 0):
+            if (self.starting_HP == 0):
                 return stage == 1
             # Seedling stage
-            elif (0 < health < 5):
+            elif (0 < self.starting_HP < 5):
                 return stage == 2
             # Vegetative stage
-            elif  (5 < health < 15 ):
+            elif  (5 < self.starting_HP < 15 ):
                 return stage == 3
             # Bud stage
-            elif (15 < health < 30): 
+            elif (15 < self.starting_HP < 30): 
                 return stage == 4
             # Flowering stage
-            elif (30 < health < 70 ):
+            elif (30 < self.starting_HP < 70 ):
                 return stage == 5
             # Ripening stage
-            elif (70 < health < 100):
+            elif (70 < self.starting_HP < 100):
                 return stage == 6
             
     def water(self, name, water):
@@ -113,9 +117,17 @@ def garden(name):
         
     Returns:
         garden_list(list): list of plants in garden    
-        str: if too many plants, user is prompted to wait until opening in 
+        err_msg (str): if too many plants, user is prompted to wait until opening in 
         garden
     """    
+    global plant_list
+    plant_list = []
+    err_msg = "Too many plants in garden, wait until one is harvested."
+    if len(plant_list) < 5:
+        plant_list.append(name)
+        return plant_list
+    else:
+        return err_msg   
     
 def harvest(name, health):
     """Harvests plant when plant reaches maximum health (maturity)
