@@ -13,7 +13,7 @@ class Plant:
     """
 
     
-   def __init__(self, name, filepath, starting_HP=0, max_HP):
+   def __init__(self, name, filepath, starting_HP=0, max_HP, water):
         """Initializes plant name and health.
         
         Args: 
@@ -26,6 +26,7 @@ class Plant:
         self.filepath = filepath
         self.starting_HP = starting_HP
         self.max_HP = max_HP
+        self.water = water
     
     def phase(self, name, health):    
         """Identifies the phase of growth the plant is in based on health points
@@ -71,7 +72,7 @@ class Plant:
             starting_HP(int): updated health points
         """
         watering = self.starting_HP + 10
-        print(f"Watering {PLANT[1]} amount of water to {PLANT[0]}.")
+        print(f"Watering {self.water} amount of water to {self.name}.")
         return watering
         
         
