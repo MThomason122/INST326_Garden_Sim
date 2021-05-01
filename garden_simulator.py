@@ -55,16 +55,21 @@ class Plant:
             elif (70 < health < 100):
                 return stage == 6
             
-    def water(self, name):
+    def water(self, name, water):
         """Waters plant according to data in file of plant information and adds 
         points to health bar.
         
         Args: 
             name(str): plant name
+            water(str): a desc of how much water needed
         
         Returns:
-            health(int): updated health points
+            starting_HP(int): updated health points
         """
+        watering = self.starting_HP + 10
+        print(f"Watering {PLANT[1]} amount of water to {PLANT[0]}.")
+        return watering
+        
         
     def season(self, name):
         """Checks if plant is okay to grow in the current season and lets you 
