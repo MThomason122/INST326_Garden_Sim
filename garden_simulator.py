@@ -102,12 +102,22 @@ class Plant:
             health(int): updated health points
         """
     
-    def ph():
+    def ph(self, ph):
         """Determine health points gained or lost according to ph of soil.
+        
+        Args:
+            ph (int): the ph level a plant receives.
         
         Returns:
             health(int): updated health points        
         """
+        if (self.ph < PLANT[6]):
+            self.starting_HP = self.starting_HP - 10
+        elif (self.ph > PLANT[7]):
+            self.starting_HP = self.starting_HP - 10
+        else:
+            self.starting_HP = self.starting_HP + 10
+        return starting_HP
         
       
 def garden(name):
