@@ -152,7 +152,7 @@ def harvest(name, health):
         Removes plant from garden when health points reach maximum
     """
 
-def main(plant, max_HP):
+def main(plant, max_HP): #unsure on how to write this code
     """Allows users to choose plants to grow in garden. 
   
     Args: 
