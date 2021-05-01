@@ -13,7 +13,7 @@ class Plant:
     """
 
     
-    def __init__(self, name, filepath, health=0):
+   def __init__(self, name, filepath, health=0):
         """Initializes plant name and health.
         
         Args: 
@@ -22,6 +22,9 @@ class Plant:
             health (int): plant lifecycle where certain levels indicate phase of 
             growth; initializes health of plant to zero
         """
+        self.name = name
+        self.filepath = filepath
+        self.health = health
     
     def phase(self, name, health):    
         """Identifies the phase of growth the plant is in based on health points
@@ -108,9 +111,16 @@ def garden(name):
         
     Returns:
         garden_list(list): list of plants in garden    
-        str: if too many plants, user is prompted to wait until opening in 
+        err_msg (str): if too many plants, user is prompted to wait until opening in 
         garden
     """    
+    plant_list = []
+    err_msg = "Too many plants in garden, wait until one is harvested."
+    if len(plant_list) < 5:
+        plant_list.append(name)
+        return plant_list
+    else:
+        return err_msg   
     
 def harvest(name, health):
     """Harvests plant when plant reaches maximum health (maturity)
