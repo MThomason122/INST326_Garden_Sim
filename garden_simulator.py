@@ -2,26 +2,45 @@
 
 # PLANT = {name, water, season, environment, sunlight, ph, phase} 
   # sunflower, daisy, potato
+plant = {}
+
 class Plant:
     """Plants grown in the garden simulation
     
     Attributes:
-        name (str): plant name 
-        health (int): plant lifecycle where certain levels indicate phase of 
-        growth
+        filepath(str): reads file on plant information
+        name (str): plant name
+        season (str): ideal season for plant growth
+        environment (str): ideal weather and environment conditions for 
+        plant growth 
+        min_sunlight (int): minimum amount of sunlight for plant growth
+        max_sunlight (int): maximum amount of sunlight for plant growth
+        min_ph (float): minimum amount of ph in soil for plant growth
+        max_ph (float): maximum amount of ph in soil for plant growth
+        max_HP (int): maturest lifecycle of plant, ready for harvest
+        starting_HP (int): initializes health of plant to zero
     """
-    
-   def __init__(self, filepath, name, min_sunlight, max_sunlight, min_ph, 
-                max_ph,  max_HP, water, starting_HP=0):
+     
+    def __init__(self, filepath, name, season, environment, min_sunlight, 
+                max_sunlight, min_ph, max_ph,  max_HP, water, starting_HP=0):
         """Initializes plant name and health.
         
         Args: 
-            name (str): plant name
             filepath(str): reads file on plant information
-            health (int): plant lifecycle where certain levels indicate phase of 
-            growth; initializes health of plant to zero
+            name (str): plant name
+            season (str): ideal season for plant growth
+            environment (str): ideal weather and environment conditions for 
+            plant growth 
+            min_sunlight (int): minimum amount of sunlight for plant growth
+            max_sunlight (int): maximum amount of sunlight for plant growth
+            min_ph (float): minimum amount of ph in soil for plant growth
+            max_ph (float): maximum amount of ph in soil for plant growth
+            max_HP (int): maturest lifecycle of plant, ready for harvest
+            starting_HP (int): initializes health of plant to zero
         """
         self.name = name
+        self.season = season
+        self.environment = environment
         self.min_sunlight = min_sunlight
         self.max_sunlight = max_sunlight
         self.min_ph = min_ph
@@ -29,10 +48,9 @@ class Plant:
         self.max_HP = max_HP
         self.water = water
         self.starting_HP = starting_HP
-        plant = {}
         with open(filepath, "r", encoding = "utf-8") as f:
             for x in f.readlines():
-                line = line.split()
+                line = x.split()
                 plant = {name: line[0],
                          water: line[1],
                          season: line[2],
@@ -42,37 +60,36 @@ class Plant:
                          min_ph: line[6],
                          max_ph: line[7],
                          max_HP: line[8]} 
-    
-    def phase(self, name, health):    
+            
+    def phase(self, name, starting_HP):    
         """Identifies the phase of growth the plant is in based on health points
         
         Args:
             name(str): plant name
-            health(int): plant lifecycle where certain levels indicate phase of 
-            growth
+            starting_HP(int): initial health points 
         
         Returns:
             stage(int): Stage of life of plant  
         """
         stage = 0
-        for name in PLANT:
+        for plant[self.name] in plant:
             # Seed/Germination stage
-            if (self.starting_HP == 0):
+            if (plant[self.starting_HP] == 0):
                 return stage == 1
             # Seedling stage
-            elif (0 < self.starting_HP < 5):
+            elif (0 < plant[self.starting_HP] < 5):
                 return stage == 2
             # Vegetative stage
-            elif  (5 < self.starting_HP < 15 ):
+            elif  (5 < plant[self.starting_HP] < 15 ):
                 return stage == 3
             # Bud stage
-            elif (15 < self.starting_HP < 30): 
+            elif (15 < plant[self.starting_HP] < 30): 
                 return stage == 4
             # Flowering stage
-            elif (30 < self.starting_HP < 70 ):
+            elif (30 < plant[self.starting_HP] < 70 ):
                 return stage == 5
             # Ripening stage
-            elif (70 < self.starting_HP < 100):
+            elif (70 < plant[self.starting_HP] < 100):
                 return stage == 6
             
     def water(self, name, water):
@@ -182,4 +199,4 @@ def main(plant, max_HP): #unsure on how to write this code
 if __name__ == "__main__":
     """Calls main function
     """
-main(sunflower, 89)
+main(name, max_HP)
