@@ -184,19 +184,21 @@ def harvest(name, health):
         Removes plant from garden when health points reach maximum
     """
 
-def main(plant, max_HP): #unsure on how to write this code
+def main(name, max_HP): #unsure on how to write this code
     """Allows users to choose plants to grow in garden. 
   
     Args: 
       name(str): plant name
+      max_HP (int): helath at which plant is most mature
     
     Side effects:
       Writes to stdout
     """
     plantA = Plant()
-    plantA.__init__(plant, max_HP)
+    plantA.__init__(name, max_HP)
       
 if __name__ == "__main__":
     """Calls main function
     """
 main(name, max_HP)
+
