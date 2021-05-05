@@ -143,9 +143,9 @@ class Plant:
         Returns:
             health(int): updated health points        
         """
-        if (self.ph < PLANT[6]):
+        if (ph < self.min_ph):
             self.starting_HP = self.starting_HP - 10
-        elif (self.ph > PLANT[7]):
+        elif (ph > self.max_ph):
             self.starting_HP = self.starting_HP - 10
         else:
             self.starting_HP = self.starting_HP + 10
