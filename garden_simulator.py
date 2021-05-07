@@ -72,6 +72,8 @@ class Plant:
             stage(int): Stage of life of plant  
         """
         stage = 0
+        
+    # different variable for changing hp? so instead of starting_HP, jsut straight up hp
         for plant[self.name] in plant:
             # Seed/Germination stage
             if (plant[self.starting_HP] == 0):
@@ -89,8 +91,9 @@ class Plant:
             elif (30 < plant[self.starting_HP] < 70 ):
                 return stage == 5
             # Ripening stage
-            elif (70 < plant[self.starting_HP] < 100):
+            elif (70 < plant[self.starting_HP] < 100) or (self.starting_HP == self.max_HP):
                 return stage == 6
+
             
     def water(self, name, water):
         """Waters plant according to data in file of plant information and adds 
