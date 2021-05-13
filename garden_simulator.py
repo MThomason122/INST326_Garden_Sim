@@ -21,8 +21,7 @@ class Plant:
         starting_HP (int): initializes health of plant to zero
     """
      
-    def __init__(self, filepath, name, season, environment, min_sunlight, 
-                max_sunlight, min_ph, max_ph,  max_HP, water, starting_HP=0):
+    def __init__(self, filepath, starting_HP=0):
         """Initializes plant name and health.
         
         Args: 
@@ -205,3 +204,4 @@ if __name__ == "__main__":
     """
 main(name, max_HP)
 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
