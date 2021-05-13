@@ -2,8 +2,6 @@
 
 # PLANT = {name, water, season, environment, sunlight, ph, phase} 
   # sunflower, daisy, potato
-plant = {}
-
 class Plant:
     """Plants grown in the garden simulation
     
@@ -37,7 +35,20 @@ class Plant:
             max_HP (int): maturest lifecycle of plant, ready for harvest
             starting_HP (int): initializes health of plant to zero
         """
-        self.name = name
+        plant = {}
+        with open(filepath, "r", encoding = "utf-8") as f:
+            for x in f.readlines():
+                line = x.split()
+                plant = {"name": line[0],
+                         "water": line[1],
+                         "season": line[2],
+                         "environment": line[3],
+                         "min_sunlight": line[4],
+                         "max_sunlight": line[5],
+                         "min_ph": line[6],
+                         "max_ph": line[7],
+                         "max_HP": line[8]} 
+            self.name = name
         self.season = season
         self.environment = environment
         self.min_sunlight = min_sunlight
@@ -47,19 +58,6 @@ class Plant:
         self.max_HP = max_HP
         self.water = water
         self.starting_HP = starting_HP
-        with open(filepath, "r", encoding = "utf-8") as f:
-            for x in f.readlines():
-                line = x.split()
-                plant = {name: line[0],
-                         water: line[1],
-                         season: line[2],
-                         environment: line[3],
-                         min_sunlight: line[4],
-                         max_sunlight: line[5],
-                         min_ph: line[6],
-                         max_ph: line[7],
-                         max_HP: line[8]} 
-            
     def phase(self, name, starting_HP):    
         """Identifies the phase of growth the plant is in based on health points
         
@@ -120,7 +118,9 @@ class Plant:
         Returns:
             Message(str): message about which season is best to plant
         """   
-    
+        for plant["season"]  "spring":
+            if 
+            
     def environment(self, name):
         """Checks the habitat requirements of the plant and 
         
