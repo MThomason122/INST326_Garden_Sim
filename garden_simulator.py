@@ -1,7 +1,8 @@
 """ A garden simulator for growing plants """
 
-# PLANT = {name, water, season, environment, sunlight, ph, phase} 
-  # sunflower, daisy, potato
+import time as t
+import pandas as pd
+
 class Plant:
     """Plants grown in the garden simulation
     
@@ -19,45 +20,27 @@ class Plant:
         starting_HP (int): initializes health of plant to zero
     """
      
-    def __init__(self, filepath, starting_HP=0):
+    def __init__(self, filepath, name, starting_HP=0):
         """Initializes plant name and health.
         
         Args: 
             filepath(str): reads file on plant information
-            name (str): plant name
-            season (str): ideal season for plant growth
-            environment (str): ideal weather and environment conditions for 
-            plant growth 
-            min_sunlight (int): minimum amount of sunlight for plant growth
-            max_sunlight (int): maximum amount of sunlight for plant growth
-            min_ph (float): minimum amount of ph in soil for plant growth
-            max_ph (float): maximum amount of ph in soil for plant growth
-            max_HP (int): maturest lifecycle of plant, ready for harvest
+            name (str): name of plant
             starting_HP (int): initializes health of plant to zero
         """
-        plant = {}
-        with open(filepath, "r", encoding = "utf-8") as f:
-            for x in f.readlines():
-                line = x.split()
-                plant = {"name": line[0],
-                         "water": line[1],
-                         "season": line[2],
-                         "environment": line[3],
-                         "min_sunlight": line[4],
-                         "max_sunlight": line[5],
-                         "min_ph": line[6],
-                         "max_ph": line[7],
-                         "max_HP": line[8]} 
-            self.name = name
-        self.season = season
-        self.environment = environment
-        self.min_sunlight = min_sunlight
-        self.max_sunlight = max_sunlight
-        self.min_ph = min_ph
-        self.max_ph = max_ph
-        self.max_HP = max_HP
-        self.water = water
+        plants = pd.read_csv(filepath)
+        
+        self.name = plants[plants["name"]== name]["name"]
+        self.season = plants[plants["name"]== name]["season"]
+        self.environment = plants[plants["name"]== name]["environment"]
+        self.min_sunlight = plants[plants["name"]== name]["min_sunlight"].astype("int")
+        self.max_sunlight = plants[plants["name"]== name]["max_sunlight"].astype("int")
+        self.min_ph = plants[plants["name"]== name]["min_ph"].astype("float")
+        self.max_ph = plants[plants["name"]== name]["max_ph"].astype("float")
+        self.max_HP = plants[plants["name"]== name]["max_HP"].astype("float")
+        self.water = plants[plants["name"]== name]["water"].astype("float")
         self.starting_HP = starting_HP
+        
     def phase(self, name, starting_HP):    
         """Identifies the phase of growth the plant is in based on health points
         
@@ -91,7 +74,9 @@ class Plant:
             elif (70 < plant[self.starting_HP] < 100) or (self.starting_HP == self.max_HP):
                 return stage == 6
 
-            
+    def updatehp(self):
+        write to txt
+                    
     def water(self, name, water):
         """Waters plant according to data in file of plant information and adds 
         points to health bar.
