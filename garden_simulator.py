@@ -7,20 +7,11 @@ class Plant:
     """Plants grown in the garden simulation
     
     Attributes:
-        filepath(str): reads file on plant information
-        name (str): plant name
-        season (str): ideal season for plant growth
-        environment (str): ideal weather and environment conditions for 
-        plant growth 
-        min_sunlight (int): minimum amount of sunlight for plant growth
-        max_sunlight (int): maximum amount of sunlight for plant growth
-        min_ph (float): minimum amount of ph in soil for plant growth
-        max_ph (float): maximum amount of ph in soil for plant growth
-        max_HP (int): maturest lifecycle of plant, ready for harvest
-        starting_HP (int): initializes health of plant to zero
+        current_HP (int): updated health points of a plant
+        plants (dataframe): dataframe of plant data CSV
     """
      
-    def __init__(self, filepath, name, starting_HP=0):
+    def __init__(self, filepath, starting_HP=0):
         """Initializes plant name and health.
         
         Args: 
@@ -28,51 +19,48 @@ class Plant:
             name (str): name of plant
             starting_HP (int): initializes health of plant to zero
         """
-        plants = pd.read_csv(filepath)
+        self.plants = pd.read_csv(filepath)
+        self.current_HP = starting_HP
         
-        self.name = plants[plants["name"]== name]["name"]
-        self.season = plants[plants["name"]== name]["season"]
-        self.environment = plants[plants["name"]== name]["environment"]
-        self.min_sunlight = plants[plants["name"]== name]["min_sunlight"].astype("int")
-        self.max_sunlight = plants[plants["name"]== name]["max_sunlight"].astype("int")
-        self.min_ph = plants[plants["name"]== name]["min_ph"].astype("float")
-        self.max_ph = plants[plants["name"]== name]["max_ph"].astype("float")
-        self.max_HP = plants[plants["name"]== name]["max_HP"].astype("float")
-        self.water = plants[plants["name"]== name]["water"].astype("float")
-        self.starting_HP = starting_HP
-        
-    def phase(self, name, starting_HP):    
+    def phase(self, name, current_HP):    
         """Identifies the phase of growth the plant is in based on health points
         
         Args:
             name(str): plant name
-            starting_HP(int): initial health points 
+            current_HP(int): updated health points 
         
         Returns:
             stage(int): Stage of life of plant  
         """
+        nameinfo = self.plants[self.plants["name"== name]]
         stage = 0
-        
-    # different variable for changing hp? so instead of starting_HP, jsut straight up hp
-        for plant[self.name] in plant:
-            # Seed/Germination stage
-            if (plant[self.starting_HP] == 0):
-                return stage == 1
-            # Seedling stage
-            elif (0 < plant[self.starting_HP] < 5):
-                return stage == 2
-            # Vegetative stage
-            elif  (5 < plant[self.starting_HP] < 15 ):
-                return stage == 3
-            # Bud stage
-            elif (15 < plant[self.starting_HP] < 30): 
-                return stage == 4
-            # Flowering stage
-            elif (30 < plant[self.starting_HP] < 70 ):
-                return stage == 5
-            # Ripening stage
-            elif (70 < plant[self.starting_HP] < 100) or (self.starting_HP == self.max_HP):
-                return stage == 6
+        # Seed/Germination stage
+        if (self.current_HP == 0):
+            stage = 1
+            return stage
+        # Seedling stage
+        elif (0 < self.current_HP < 5):
+            stage = 2
+            return stage
+        # Vegetative stage
+        elif  (5 < self.current_HP < 15 ):
+            stage = 3
+            return stage
+        # Bud stage
+        elif (15 < self.current_HP < 30): 
+            stage = 4
+            return stage
+        # Flowering stage
+        elif (30 < self.current_HP < 70 ):
+            if name == "strawberry":
+                stage = 6
+            else:
+                stage = 5
+            return stage
+        # Ripening stage
+        elif (70 < self.current_HP < 100) or (self.current_HP == int(nameinfo["max_HP"].iloc[0])):
+            stage = 6
+            return stage
 
     def updatehp(self):
         write to txt
@@ -93,7 +81,7 @@ class Plant:
         return watering
         
         
-    def season(self, name):
+    def season(self, name, ):
         """Checks if plant is okay to grow in the current season and lets you 
         know which season is ideal
         
@@ -120,7 +108,7 @@ class Plant:
         Returns:
             health(int): updated health points
         """
-    
+    #look at aardvark
     def ph(self, ph):
         """Determine health points gained or lost according to ph of soil.
         
@@ -136,9 +124,7 @@ class Plant:
             self.starting_HP = self.starting_HP - 10
         else:
             self.starting_HP = self.starting_HP + 10
-        return starting_HP
-        
-      
+
 def garden(name):
     """Grow plants in a garden that can hold up to 5 plants.
     
@@ -147,8 +133,7 @@ def garden(name):
         
     Returns:
         garden_list(list): list of plants in garden    
-        err_msg (str): if too many plants, user is prompted to wait until opening in 
-        garden
+        err_msg (str): if too many plants, user is prompted to wait until opening in garden
     """    
     global plant_list
     plant_list = []
@@ -181,8 +166,9 @@ def main(name, max_HP): #unsure on how to write this code
     Side effects:
       Writes to stdout
     """
-    plantA = Plant()
-    plantA.__init__(name, max_HP)
+    Plant.
+    name = input("Please choose from the following plants: sunflower, potato, cactus, hibiscus, bamboo, strawberry\n")
+    
       
 if __name__ == "__main__":
     """Calls main function
