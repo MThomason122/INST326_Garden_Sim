@@ -1,0 +1,7 @@
+name,water ,season,environment,min_sunlight,max_sunlight,min_ph,max_ph,max_HP
+sunflower,1.1,spring,warm weather,6,8,6,7.5,79
+potato,5,spring,mild weather,6,12,5,7,86
+cactus,0.5,summer,warm weather,4,6,5,6.5,100
+hibiscus,4,spring,hot weather,6,8,6.5,6.8,98
+bamboo,3,summer,warm weather,6,8,5.5,6.5,80
+strawberry,5,spring,warm weather,8,10,5.5,6.8,60
