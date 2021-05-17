@@ -168,6 +168,9 @@ def harvest(name, current_HP):
     """
     if current_HP == 100:
         plant_list.remove(name)
+        print(f'{name} has been harvested!')
+    else:
+        print(f'I''m sorry, but {name} is not ready for harvest')
     
     
 def main(filepath, starting_HP=0): #unsure on how to write this code
