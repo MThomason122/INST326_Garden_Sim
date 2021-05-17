@@ -1,6 +1,6 @@
 """ A garden simulator for growing plants """
 
-import time as t
+from time import strftime
 import pandas as pd
 
 class Plant:
@@ -32,39 +32,66 @@ class Plant:
         Returns:
             stage(int): Stage of life of plant  
         """
-        nameinfo = self.plants[self.plants["name"== name]]
+        nameinfo = self.plants[self.plants["name"]== name]
         stage = 0
         # Seed/Germination stage
         if (self.current_HP == 0):
             stage = 1
-            return stage
         # Seedling stage
         elif (0 < self.current_HP < 5):
             stage = 2
-            return stage
         # Vegetative stage
         elif  (5 < self.current_HP < 15 ):
             stage = 3
-            return stage
         # Bud stage
         elif (15 < self.current_HP < 30): 
             stage = 4
-            return stage
         # Flowering stage
         elif (30 < self.current_HP < 70 ):
             if name == "strawberry":
                 stage = 6
             else:
                 stage = 5
-            return stage
         # Ripening stage
         elif (70 < self.current_HP < 100) or (self.current_HP == int(nameinfo["max_HP"].iloc[0])):
             stage = 6
-            return stage
-
-    def updatehp(self):
-        write to txt
-                    
+        return stage
+        
+    def season(self, name):
+        """Checks if plant is okay to grow in the current season and lets you 
+        know which season is ideal
+        
+        Args:
+            name(str): name of plant
+        
+        Returns:
+            Message(str): message about which season is best to plant
+        """   
+        infoname = self.plants[self.plants["name"]== name]
+        month = strftime("%B")
+        # for self.plants["season"]  "spring":
+        #    if 
+        month_season = {"January": "winter",
+                        "February": "winter",
+                        "March": "spring",
+                        "April": "spring",
+                        "May": "spring",
+                        "June": "summer",
+                        "July": "summer",
+                        "August": "summer",
+                        "September": "summer",
+                        "October": "fall",
+                        "November": "fall",
+                        "December": "winter"}
+        if infoname.season.values[0] == month_season[month]:
+            statement = f"The current season is {month_season[month]}. You can plant a {name}!"
+        else:
+            statement = f"The current season is {month_season[month]}. You cannot plant a {name}. :/"
+        return (f"The ideal season for a {name} is {infoname.season.values[0]}."
+                f" {statement}")
+        
+                            
+    # array based on name
     def water(self, name, water):
         """Waters plant according to data in file of plant information and adds 
         points to health bar.
@@ -79,20 +106,7 @@ class Plant:
         watering = self.starting_HP + 10
         print(f"Watering {self.water} amount of water to {self.name}.")
         return watering
-        
-        
-    def season(self, name, ):
-        """Checks if plant is okay to grow in the current season and lets you 
-        know which season is ideal
-        
-        Args:
-            name(str): name of plant
-        
-        Returns:
-            Message(str): message about which season is best to plant
-        """   
-        for plant["season"]  "spring":
-            if 
+
             
     def environment(self, name):
         """Checks the habitat requirements of the plant and 
@@ -134,17 +148,17 @@ def garden(name):
     Returns:
         garden_list(list): list of plants in garden    
         err_msg (str): if too many plants, user is prompted to wait until opening in garden
-    """    
-    global plant_list
+    """
+    # global plant_list
     plant_list = []
     err_msg = "Too many plants in garden, wait until one is harvested."
     if len(plant_list) < 5:
         plant_list.append(name)
         return plant_list
     else:
-        return err_msg   
+        return err_msg
     
-def harvest(name, health):
+def harvest(name, current_HP):
     """Harvests plant when plant reaches maximum health (maturity)
     
     Args:
@@ -155,24 +169,25 @@ def harvest(name, health):
     Side effect:
         Removes plant from garden when health points reach maximum
     """
-
-def main(name, max_HP): #unsure on how to write this code
+    
+def main(filepath, starting_HP=0): #unsure on how to write this code
     """Allows users to choose plants to grow in garden. 
   
     Args: 
-      name(str): plant name
-      max_HP (int): helath at which plant is most mature
+        name(str): plant name
+        max_HP (int): helath at which plant is most mature
     
     Side effects:
-      Writes to stdout
+        Writes to stdout
     """
-    Plant.
+    plant = Plant(filepath, starting_HP)
     name = input("Please choose from the following plants: sunflower, potato, cactus, hibiscus, bamboo, strawberry\n")
+    print(plant.season(name))
     
-      
 if __name__ == "__main__":
     """Calls main function
     """
-main(name, max_HP)
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+    main("plants.csv", 30)
+    
+    
+    
