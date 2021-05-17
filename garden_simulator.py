@@ -89,7 +89,7 @@ class Plant:
         return (f"The ideal season for a {name} is {infoname.season.values[0]}."
                 f" {statement}")
         
-    def water(self, name, water):
+    def water(self, name):
         """Waters plant according to data in file of plant information and adds 
         points to health bar.
         
@@ -100,8 +100,13 @@ class Plant:
         Returns:
             starting_HP(int): updated health points
         """
-        watering = self.starting_HP + 10
-        print(f"Watering {self.water} amount of water to {self.name}.")
+        name = self.plants['name']
+        waterinfo = self.plants[self.plants['water'] == water]
+        watering = self.current_HP + 10
+        if water >= 2:
+            print(f"Watering {water} liters of water to {name} daily.")
+        else:
+            print(f"Watering {water} liter of water to {name} daily.")
         return watering
 
             
