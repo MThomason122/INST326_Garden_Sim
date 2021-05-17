@@ -65,12 +65,11 @@ class Plant:
             name(str): name of plant
         
         Returns:
-            Message(str): message about which season is best to plant
+            Message(str): message stating the current season and the ideal 
+            season is for growth of plant chosen
         """   
         infoname = self.plants[self.plants["name"]== name]
         month = strftime("%B")
-        # for self.plants["season"]  "spring":
-        #    if 
         month_season = {"January": "winter",
                         "February": "winter",
                         "March": "spring",
@@ -90,8 +89,6 @@ class Plant:
         return (f"The ideal season for a {name} is {infoname.season.values[0]}."
                 f" {statement}")
         
-                            
-    # array based on name
     def water(self, name, water):
         """Waters plant according to data in file of plant information and adds 
         points to health bar.
@@ -149,7 +146,7 @@ def garden(name):
         garden_list(list): list of plants in garden    
         err_msg (str): if too many plants, user is prompted to wait until opening in garden
     """
-    # global plant_list
+    global plant_list
     plant_list = []
     err_msg = "Too many plants in garden, wait until one is harvested."
     if len(plant_list) < 5:
@@ -174,8 +171,7 @@ def main(filepath, starting_HP=0): #unsure on how to write this code
     """Allows users to choose plants to grow in garden. 
   
     Args: 
-        name(str): plant name
-        max_HP (int): helath at which plant is most mature
+                
     
     Side effects:
         Writes to stdout
