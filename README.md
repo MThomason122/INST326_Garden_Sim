@@ -1,5 +1,8 @@
 # INST326_Garden_Sim Group D
-
+# ShikineK - Matthew
+# mingzhen95 - Ming
+# yw-chenn - Yuewen Chen
+# agyarai - Agya
 **Purpose**
 
 garden_simulator.py - The main file of the project that allows the user to simulate a garden via the command line.
