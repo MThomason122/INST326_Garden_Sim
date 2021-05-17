@@ -2,7 +2,11 @@
 
 **Purpose**
 
-An explanation of the purpose of each file in your repository
+garden_simulator.py - The main file of the project that allows the user to simulate a garden via the command line.
+garden_simulator_test.py - The main file that we use for testing our code.
+plants.csv - The csv file containing 
+README.md - A read me file that explains the purpose and how to use the program.
+
 
 **How to Run garden_simulator.py**
 

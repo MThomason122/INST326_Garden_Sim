@@ -166,6 +166,9 @@ def harvest(name, current_HP):
     Side effect:
         Removes plant from garden when health points reach maximum
     """
+    if current_HP == 100:
+        plant_list.remove(name)
+    
     
 def main(filepath, starting_HP=0): #unsure on how to write this code
     """Allows users to choose plants to grow in garden. 
