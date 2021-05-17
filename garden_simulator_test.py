@@ -7,6 +7,7 @@ from time import strftime
 
 
 def test_season():
+    """Does season() return the message confirming the current and ideal season?"""
     plant = Plant("plants.csv", 30)
     month = strftime("%B")
     month_season = {"January": "winter",
@@ -26,7 +27,8 @@ def test_season():
         assert plant.season("cactus") == "The ideal season for a cactus is summer. The current season is spring. You cannot plant a cactus. :/"
     elif month_season[month] == "summer":
         assert plant.season("cactus") == "The ideal season for a cactus is summer. The current season is summer. You can plant a cactus!"
-    
+        assert plant.season("sunflower") == "The ideal season for a sunflower is spring. The current season is summer. You cannot plant a sunflower. :/"
+
     
     
     
