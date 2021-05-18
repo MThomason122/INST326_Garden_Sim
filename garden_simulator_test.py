@@ -53,42 +53,43 @@ def test_ph():
 def test_garden1():
     """Does the garden() method work?"""
     plantTest = Plant()
-    plantTest.garden('apple')
+    plantTest.garden('potato')
     plantTest.garden('sunflower')
     plantTest.garden('cactus')
-    plantTest.garden('peach')
-    plantTest.garden('pineapple')
-    plantTest.garden('lily')
+    plantTest.garden('hibiscus')
+    plantTest.garden('bamboo')
+    plantTest.garden('strawberry')
     
     assert len(plantTest.plant_list) == 5
     
 def test_garden2():
     plantTest2 = Plnat()
-    plantTest.garden('apple')
+    plantTest.garden('potato')
     plantTest.garden('sunflower')
     plantTest.garden('cactus')
-    plantTest.garden('peach')
+    plantTest.garden('bamboo')
     
     assert len(plantTest2.plant_list) == 4
     
 def test_harvest1():
     """Does harvest() actually harvest"""
     plantTest3 = Plant()
-    plantTest3.garden('apple')
-    plantTest3.garden('sunflower')
-    plantTest3.garden('cactus')
-    plantTest3.garden('peach')
-    plantTest3.garden('lily')
-    plantTest3.harvest('lily', 100)
+    plantTest.garden('potato')
+    plantTest.garden('sunflower')
+    plantTest.garden('cactus')
+    plantTest.garden('hibiscus')
+    plantTest.garden('bamboo')
+    plantTest.garden('strawberry')
+    plantTest3.harvest('strawberry', 100)
     assert len(plantTest.plant_list) == 4
     
 def test_harvest2():    
     plantTest4 = Plant()
-    plantTest4.garden('lily')
-    plantTest4.garden('sunflower')
-    plantTest4.garden('cactus')
-    plantTest4.garden('wheat')
-    plantTest4.harvest('wheat', 50)
+    plantTest.garden('potato')
+    plantTest.garden('sunflower')
+    plantTest.garden('cactus')
+    plantTest.garden('bamboo')
+    plantTest4.harvest('bamboo', 50)
     assert len(plantTest4.plant_list) == 4
     
    
