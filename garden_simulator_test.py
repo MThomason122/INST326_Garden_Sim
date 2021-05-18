@@ -41,45 +41,55 @@ def test_water():
         assert plant.water('catus') == "Watering 0.5 liter of water to potato daily"
     return watering
 
+def test_ph():
+    name = plants["name"]
+    max_ph = plant.max_ph
+    min_ph = plant.min_ph
+    if max_ph >= plants["max_ph"]:
+        assert plant.max_ph("sunflower") == "the maximum ph level for sunflower is 7.5"
+    if min_ph <= plants["min_ph"]:
+        assert plant.min_ph("sunflower") == "the minimum ph level for sunflower is 6"
+        
 def test_garden1():
     """Does the garden() method work?"""
     plantTest = Plant()
-    plantTest.garden('apple')
+    plantTest.garden('potato')
     plantTest.garden('sunflower')
     plantTest.garden('cactus')
-    plantTest.garden('peach')
-    plantTest.garden('pineapple')
-    plantTest.garden('lily')
+    plantTest.garden('hibiscus')
+    plantTest.garden('bamboo')
+    plantTest.garden('strawberry')
     
     assert len(plantTest.plant_list) == 5
     
 def test_garden2():
     plantTest2 = Plnat()
-    plantTest.garden('apple')
+    plantTest.garden('potato')
     plantTest.garden('sunflower')
     plantTest.garden('cactus')
-    plantTest.garden('peach')
+    plantTest.garden('bamboo')
     
     assert len(plantTest2.plant_list) == 4
     
 def test_harvest1():
     """Does harvest() actually harvest"""
     plantTest3 = Plant()
-    plantTest3.garden('apple')
-    plantTest3.garden('sunflower')
-    plantTest3.garden('cactus')
-    plantTest3.garden('peach')
-    plantTest3.garden('lily')
-    plantTest3.harvest('lily', 100)
+    plantTest.garden('potato')
+    plantTest.garden('sunflower')
+    plantTest.garden('cactus')
+    plantTest.garden('hibiscus')
+    plantTest.garden('bamboo')
+    plantTest.garden('strawberry')
+    plantTest3.harvest('strawberry', 100)
     assert len(plantTest.plant_list) == 4
     
 def test_harvest2():    
     plantTest4 = Plant()
-    plantTest4.garden('lily')
-    plantTest4.garden('sunflower')
-    plantTest4.garden('cactus')
-    plantTest4.garden('wheat')
-    plantTest4.harvest('wheat', 50)
+    plantTest.garden('potato')
+    plantTest.garden('sunflower')
+    plantTest.garden('cactus')
+    plantTest.garden('bamboo')
+    plantTest4.harvest('bamboo', 50)
     assert len(plantTest4.plant_list) == 4
     
    

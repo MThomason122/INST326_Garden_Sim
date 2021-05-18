@@ -236,12 +236,24 @@ def main(filepath, starting_HP=0):
     plant = Plant(filepath, starting_HP)
     name = input("Please choose from the following plants: sunflower, potato, cactus, hibiscus, bamboo, strawberry\n")
     print(plant.season(name))
+<<<<<<< HEAD
     print(plant.sunlight(name))
     print(plant.water(name))
     print(plant.environment(name))
     print(plant.sunlight(name))
     garden.name
     harvest.name      
+=======
+    plant.garden(name)
+    harvestYN = input("Would you like to harvest?")
+    if harvestYN == "Yes"
+        print(plant.plant_list)
+        harvestSelection = input("What plant would you like to harvest?")
+        plant.harvest(name)
+    if harvestYN == "No"
+        pass
+    
+>>>>>>> 85363d65ad5edb6610d49a7a7fffc6a0e0bfafdf
 if __name__ == "__main__":
     """Calls main function
     """
