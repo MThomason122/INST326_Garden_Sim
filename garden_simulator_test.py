@@ -41,7 +41,46 @@ def test_water():
         assert plant.water('catus') == "Watering 0.5 liter of water to potato daily"
     return watering
 
-
+def test_garden1():
+    """Does the garden() method work?"""
+    plantTest = Plant()
+    plantTest.garden('apple')
+    plantTest.garden('sunflower')
+    plantTest.garden('cactus')
+    plantTest.garden('peach')
+    plantTest.garden('pineapple')
+    plantTest.garden('lily')
+    
+    assert len(plantTest.plant_list) == 5
+    
+def test_garden2():
+    plantTest2 = Plnat()
+    plantTest.garden('apple')
+    plantTest.garden('sunflower')
+    plantTest.garden('cactus')
+    plantTest.garden('peach')
+    
+    assert len(plantTest2.plant_list) == 4
+    
+def test_harvest1():
+    """Does harvest() actually harvest"""
+    plantTest3 = Plant()
+    plantTest3.garden('apple')
+    plantTest3.garden('sunflower')
+    plantTest3.garden('cactus')
+    plantTest3.garden('peach')
+    plantTest3.garden('lily')
+    plantTest3.harvest('lily', 100)
+    assert len(plantTest.plant_list) == 4
+    
+def test_harvest2():    
+    plantTest4 = Plant()
+    plantTest4.garden('lily')
+    plantTest4.garden('sunflower')
+    plantTest4.garden('cactus')
+    plantTest4.garden('wheat')
+    plantTest4.harvest('wheat', 50)
+    assert len(plantTest4.plant_list) == 4
     
     
     
