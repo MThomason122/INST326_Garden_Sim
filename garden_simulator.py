@@ -198,6 +198,7 @@ def garden(name):
         garden_list(list): list of plants in garden    
         err_msg (str): if too many plants, user is prompted to wait until opening in garden
     """
+    global plant_list
     plant_list = []
     err_msg = "Too many plants in garden, wait until one is harvested."
     if len(plant_list) < 5:
@@ -228,7 +229,8 @@ def main(filepath, starting_HP=0):
     """Allows users to choose plants to grow in garden. 
   
     Args: 
-        name (str): 
+        filepath: path to plants.csv with data on plant options
+        starting_HP (int): initial HP of all plants in garden
     
     Side effects:
         Writes to stdout
@@ -236,24 +238,20 @@ def main(filepath, starting_HP=0):
     plant = Plant(filepath, starting_HP)
     name = input("Please choose from the following plants: sunflower, potato, cactus, hibiscus, bamboo, strawberry\n")
     print(plant.season(name))
-<<<<<<< HEAD
     print(plant.sunlight(name))
     print(plant.water(name))
     print(plant.environment(name))
     print(plant.sunlight(name))
     garden.name
-    harvest.name      
-=======
     plant.garden(name)
     harvestYN = input("Would you like to harvest?")
-    if harvestYN == "Yes"
+    if harvestYN == "Yes":
         print(plant.plant_list)
         harvestSelection = input("What plant would you like to harvest?")
         plant.harvest(name)
-    if harvestYN == "No"
+    elif harvestYN == "No":
         pass
     
->>>>>>> 85363d65ad5edb6610d49a7a7fffc6a0e0bfafdf
 if __name__ == "__main__":
     """Calls main function
     """
