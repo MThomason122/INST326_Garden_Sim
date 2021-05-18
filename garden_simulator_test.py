@@ -41,6 +41,15 @@ def test_water():
         assert plant.water('catus') == "Watering 0.5 liter of water to potato daily"
     return watering
 
+def test_ph():
+    name = plants["name"]
+    max_ph = plant.max_ph
+    min_ph = plant.min_ph
+    if max_ph >= plants["max_ph"]:
+        assert plant.max_ph("sunflower") == "the maximum ph level for sunflower is 7.5"
+    if min_ph <= plants["min_ph"]:
+        assert plant.min_ph("sunflower") == "the minimum ph level for sunflower is 6"
+        
 def test_garden1():
     """Does the garden() method work?"""
     plantTest = Plant()
