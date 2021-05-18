@@ -14,11 +14,20 @@ README.md - A read me file that explains the purpose and how to use the program.
 
 **How to Run garden_simulator.py**
 
-Clear instructions on how to run your program from the command line
+All you need to do to run our program is to put in the terminal: 
 
+      python garden_simulator.py
+
+You will be prompted to choose a plant, the options displayed in the prompt. Enter your chosen plant and the program should run from there. 
+      
 **How to Use Program or Interpret Results**
 
-Clear instructions on how to use your program and/or interpret the output of the program, as applicable
+First you want to plant a plant in the garden with the garden function.
+Then you can water the plant with the water method.
+After this you can harvest the plant using the harvest function.
+You can also check the environment, ph, and sunlight of a given plant with their respective commands (their names are the commands)
+If the plant's HP isn't at 100, you cannot harvest, but if it is you are allowed to. 
+Planting more than five plants in the garden results in an message error.
 
 **Annotated Bibliography**
 
