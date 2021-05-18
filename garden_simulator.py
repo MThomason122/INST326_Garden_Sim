@@ -112,11 +112,40 @@ class Plant:
 
             
     def environment(self, name):
-        """Checks the habitat requirements of the plant and 
+        """Checks the habitat requirements of the plant and determine
+        the amount of total health point for the plant.
+        
+        Args:
+            name(str): plant name
         
         Returns:
             health(int): updated health points
         """
+        name = self.plants["name"]
+        environment = self.plants[self.plants["environment"] == environment]
+        if (name == "sunflower" and environment == "warm weather"):
+            self.current_HP += 10
+            print(f"the {name}'s current health point is: {current_HP}")
+        elif (name == "potato" and environment == "mild weather"):
+            self.current_HP += 10
+            print(f"the {name}'s current health point is: {current_HP}")
+        elif (name == "cactus" and environment == "warm weather"):
+            self.current_HP += 10
+            print(f"the {name}'s current health point is: {current_HP}")
+        elif (name == "hibiscus" and environment == "hot weather"):
+            self.current_HP += 10
+            print(f"the {name}'s current health point is: {current_HP}")
+        elif (name == "bamboo" and environment == "warm weather"):
+            self.current_HP += 10
+            print(f"the {name}'s current health point is: {current_HP}")
+        elif (name == "strawberry" and environment == "warm weather"):
+            self.current_HP += 10
+            print(f"the {name}'s current health point is: {current_HP}")
+        else:
+            self.current_HP -= 10
+            print(f"the {name}'s current health point is: {current_HP}")
+        
+
     
     def sunlight(self, slinfo, sunshine):
         """Checks the suitable amount of sunlight required
@@ -139,17 +168,24 @@ class Plant:
         """Determine health points gained or lost according to ph of soil.
         
         Args:
+            name (str): the plant name.
             ph (int): the ph level a plant receives.
         
         Returns:
             health(int): updated health points        
         """
+        name = self.plants["name"]
+        ph = self.plants[self.plants["ph"] == ph]
         if (ph < self.min_ph):
-            self.starting_HP = self.starting_HP - 10
+            self.current_HP = self.current_HP - 10
+            print(f"the {name}'s current health point is: {current_HP}")
         elif (ph > self.max_ph):
-            self.starting_HP = self.starting_HP - 10
+            self.current_HP = self.current_HP - 10
+            print(f"the {name}'s current health point is: {current_HP}")
         else:
-            self.starting_HP = self.starting_HP + 10
+            self.current_HP = self.current_HP + 10
+            print(f"the {name}'s current health point is: {current_HP}")
+
 
 def garden(name):
     """Grow plants in a garden that can hold up to 5 plants.
