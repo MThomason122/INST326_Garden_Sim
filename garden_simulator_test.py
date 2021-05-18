@@ -18,7 +18,7 @@ def test_season():
                     "June": "summer",
                     "July": "summer",
                     "August": "summer",
-                    "September": "summer",
+                    "September": "fall",
                     "October": "fall",
                     "November": "fall",
                     "December": "winter"}
