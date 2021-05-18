@@ -82,9 +82,4 @@ def test_harvest2():
     plantTest4.harvest('wheat', 50)
     assert len(plantTest4.plant_list) == 4
     
-    
-    
-def main():
-    """Does phase() return the stage of the plant?"""
-    with mock.patch("builtins.input", side_effect=["Alice", "27"]):
-        assert myproject.get_user_info() == ("Alice", 27)
+   
