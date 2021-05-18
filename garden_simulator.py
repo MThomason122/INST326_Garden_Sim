@@ -100,15 +100,15 @@ class Plant:
         Returns:
             watering(int): updated health points
         """
-        name = self.plants['name']
+        name = self.plants[self.plants["name"]== name]
         waterinfo = self.plants[self.plants['water'] == water]
         watering = self.current_HP + 10
         if water >= 2:
             print(f"Watering {water} liters of water to {name} daily.\n" )
-        return watering
+            return watering
         else:
             print(f"Watering {water} liter of water to {name} daily.\n" )
-        return watering
+            return watering
 
             
     def environment(self, name):
@@ -121,7 +121,7 @@ class Plant:
         Returns:
             health(int): updated health points
         """
-        name = self.plants["name"]
+        name = self.plants[self.plants["name"]== name]
         environment = self.plants[self.plants["environment"] == environment]
         if (name == "sunflower" and environment == "warm weather"):
             self.current_HP += 10
@@ -147,7 +147,7 @@ class Plant:
         
 
     
-    def sunlight(self, slinfo, sunshine):
+    def sunlight(self, name):
         """Checks the suitable amount of sunlight required
         for plants to grow
         
@@ -155,15 +155,16 @@ class Plant:
             name(str): plant name
             slinfo(str): getting how much sunlight the plant needs.
             sunshine(int): add health points to current_HP    
+        
         Returns:
             sunshine(int): updated health points
         """
-        name = slef.plants['name']
-        slinfo = self.plants[self.plants['min_sunlight']] == sunlight]
+        name = self.plants[self.plants["name"]== name]
+        slinfo = self.plants[self.plants['min_sunlight']]
         sunshine = self.current_HP + 10
-        print(f"The {name} needs {slinfo} minutes of sunlight. {slinfo} minutes of sunlight was given daily")
+        print(f"The {name} needs {slinfo} hours of sunlight. {slinfo} hours of sunlight was given daily")
         return sunshine
-    
+
     def ph(self, ph):
         """Determine health points gained or lost according to ph of soil.
         
@@ -174,7 +175,7 @@ class Plant:
         Returns:
             health(int): updated health points        
         """
-        name = self.plants["name"]
+        name = self.plants[self.plants["name"]== name]
         ph = self.plants[self.plants["ph"] == ph]
         if (ph < self.min_ph):
             self.current_HP = self.current_HP - 10
@@ -197,7 +198,6 @@ def garden(name):
         garden_list(list): list of plants in garden    
         err_msg (str): if too many plants, user is prompted to wait until opening in garden
     """
-    global plant_list
     plant_list = []
     err_msg = "Too many plants in garden, wait until one is harvested."
     if len(plant_list) < 5:
@@ -228,7 +228,7 @@ def main(filepath, starting_HP=0):
     """Allows users to choose plants to grow in garden. 
   
     Args: 
-                
+        name (str): 
     
     Side effects:
         Writes to stdout
@@ -236,7 +236,12 @@ def main(filepath, starting_HP=0):
     plant = Plant(filepath, starting_HP)
     name = input("Please choose from the following plants: sunflower, potato, cactus, hibiscus, bamboo, strawberry\n")
     print(plant.season(name))
-    
+    print(plant.sunlight(name))
+    print(plant.water(name))
+    print(plant.environment(name))
+    print(plant.sunlight(name))
+    garden.name
+    harvest.name      
 if __name__ == "__main__":
     """Calls main function
     """
