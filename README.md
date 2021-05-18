@@ -14,8 +14,12 @@ README.md - A read me file that explains the purpose and how to use the program.
 
 **How to Run garden_simulator.py**
 
-Clear instructions on how to run your program from the command line
+All you need to do to run our program is to put in the terminal: 
 
+      python garden_simulator.py
+
+You will be prompted to choose a plant, the options displayed in the prompt. Enter your chosen plant and the program should run from there. 
+      
 **How to Use Program or Interpret Results**
 
 First you want to plant a plant in the garden with the garden function.
