@@ -89,24 +89,24 @@ class Plant:
         return (f"The ideal season for a {name} is {infoname.season.values[0]}."
                 f" {statement}")
         
-    def water(self, name):
+    def water(self, name, water):
         """Waters plant according to data in file of plant information and adds 
         points to health bar.
         
         Args: 
             name(str): plant name
-            water(str): a desc of how much water needed
+            water(int): the amount of water need
         
         Returns:
-            starting_HP(int): updated health points
+            watering(int): updated health points
         """
         name = self.plants['name']
         waterinfo = self.plants[self.plants['water'] == water]
         watering = self.current_HP + 10
         if water >= 2:
-            print(f"Watering {water} liters of water to {name} daily.")
+            print(f"Watering {water} liters of water to {name} daily.\n" )
         else:
-            print(f"Watering {water} liter of water to {name} daily.")
+            print(f"Watering {water} liter of water to {name} daily.\n" )
         return watering
 
             
@@ -117,14 +117,23 @@ class Plant:
             health(int): updated health points
         """
     
-    def sunlight():
+    def sunlight(self, slinfo, sunshine):
         """Checks the suitable amount of sunlight required
         for plants to grow
         
+        Args:
+            name(str): plant name
+            slinfo(str): getting how much sunlight the plant needs.
+            sunshine(int): add health points to current_HP    
         Returns:
-            health(int): updated health points
+            sunshine(int): updated health points
         """
-    #look at aardvark
+        name = slef.plants['name']
+        slinfo = self.plants[self.plants['min_sunlight']] == sunlight]
+        sunshine = self.current_HP + 10
+        print(f"The {name} needs {slinfo} minutes of sunlight. {slinfo} minutes of sunlight was given daily")
+        return sunshine
+    
     def ph(self, ph):
         """Determine health points gained or lost according to ph of soil.
         
