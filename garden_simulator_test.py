@@ -28,6 +28,19 @@ def test_season():
     elif month_season[month] == "summer":
         assert plant.season("cactus") == "The ideal season for a cactus is summer. The current season is summer. You can plant a cactus!"
         assert plant.season("sunflower") == "The ideal season for a sunflower is spring. The current season is summer. You cannot plant a sunflower. :/"
+        
+def test_water():
+    """Does water() return the correct message and add HP to the current_HP"""
+    name = self.plants['name']
+    waterinfo = self.plants[self.plants['water'] == water]
+    watering = self.current_HP + 10
+    if water >= 2:
+        assert plant.water("sunflower") == "Watering 2 liters of water to sunflower daily" 
+        assert plant.water("potato")  == "Watering 5 liters of water to potato daily"
+    elif water <2
+        assert plant.water('catus') == "Watering 0.5 liter of water to potato daily"
+    return watering
+
 
     
     
