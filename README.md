@@ -18,6 +18,10 @@ Clear instructions on how to run your program from the command line
 
 **How to Use Program or Interpret Results**
 
+First you need to plant a plant in the garden using the garden method.
+Then you can use the water command to water the plants, which will allow the plant to grow.
+If the plant's HP reaches 100, the user can use the harvest command to harvest the plant.
+
 Clear instructions on how to use your program and/or interpret the output of the program, as applicable
 
 **Annotated Bibliography**
