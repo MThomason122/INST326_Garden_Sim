@@ -105,6 +105,7 @@ class Plant:
         watering = self.current_HP + 10
         if water >= 2:
             print(f"Watering {water} liters of water to {name} daily.\n" )
+        return watering
         else:
             print(f"Watering {water} liter of water to {name} daily.\n" )
         return watering
@@ -187,7 +188,7 @@ def harvest(name, current_HP):
         print(f'I''m sorry, but {name} is not ready for harvest')
     
     
-def main(filepath, starting_HP=0): #unsure on how to write this code
+def main(filepath, starting_HP=0): 
     """Allows users to choose plants to grow in garden. 
   
     Args: 
