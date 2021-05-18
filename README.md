@@ -30,11 +30,11 @@ Anne, P. (2018, December 08). Do sunflowers need a lot of water? When and how to
 
 How to grow strawberries. (n.d.). Retrieved May 17, 2021, from https://www.pennington.com/all-products/fertilizer/resources/how-to-grow-strawberries#:~:text=Strawberries%20need%20plenty%20of%20sun,or%20more%20is%20even%20better.&amp;text=The%20more%20sun%20your%20plants,more%20fruit%20they'll%20produce.
 
-   This source contained information on the amount of sunlight and soil pH for strawberry plants. 
+   - This source contained information on the amount of sunlight and soil pH for strawberry plants. 
 
 How to grow strawberries at home. (2020, November 05). Retrieved May 17, 2021, from https://www.indiatoday.in/information/story/how-to-grow-strawberries-at-home-1738221-2020-11-05
 
-   This source contained information on the ideal weather, enivronment and amount of water for growing strawberry plants. 
+   - This source contained information on the ideal weather, enivronment and amount of water for growing strawberry plants. 
 
 
 
